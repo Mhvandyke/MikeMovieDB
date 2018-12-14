@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ReserveComponent} from './reserve/reserve.component';
 import { PostComponent } from './post/post.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
@@ -26,7 +27,8 @@ const routes: Routes = [
     HomeComponent,
     LoginComponent,
     ReserveComponent,
-    PostComponent 
+    PostComponent,
+    MovieDetailComponent 
   ],
   imports: [
     BrowserModule,
