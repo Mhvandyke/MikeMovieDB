@@ -2,7 +2,7 @@
 
 <div class="container">
 
-  <form id="login">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
 <table class="table table-bordered" style="height: 50%">
     <thead>
         <h3>Admin Login</h3>
@@ -13,7 +13,7 @@
           
         </td>
         <td>
-            <input type="text">
+          <input ngModel name="username" type="text" placeholder="Username"><br/>
         </td>
       </tr>
 
@@ -22,7 +22,7 @@
             Password
       </td>
       <td>
-        <input type="text">
+        <input ngModel name="password" type="text" placeholder="Password"><br/>
       </td>
     </tr>
     
