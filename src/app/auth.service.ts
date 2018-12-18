@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { map } from 'rxjs/operators';
 import { authResult } from './_models/authResult';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -16,7 +17,7 @@ export class AuthService {
   get isLoggedIn() {
       return this.loggedInStatus;
   }
-  
+
   setLoggedIn(status: boolean) {
       this.loggedInStatus = status;
   }

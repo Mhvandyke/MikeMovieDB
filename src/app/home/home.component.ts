@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {server} from '../../../server.js';
+
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import {server} from '../../../server.js';
 
 export class HomeComponent implements OnInit {
   
-  movieList = server;
+  // movieList = server
 
   constructor() { }
 

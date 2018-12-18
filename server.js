@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const hostname = 'localhost';
-const port = process.env.PORT || "4040";
+const port = process.env.PORT || "4020";
 
 app.set("port", port);
 
@@ -25,23 +25,23 @@ mongoose.connect(url);
 
 
 
-db = mongoose.connection;
+// db = mongoose.connection;
 
-var Schema = mongoose.Schema;
+// var Schema = mongoose.Schema;
 
 
 
-var movieSchema = new Schema({
-  _id: Object,
-  mName:  String,
-  mTime: Number,
-  mGenre:   String,
-  mRating: Number,
-  mDirector: String,
-  mStatus: Boolean,
-},  { collection : 'movies' });
+// var movieSchema = new Schema({
+//   _id: Object,
+//   mName:  String,
+//   mTime: Number,
+//   mGenre:   String,
+//   mRating: Number,
+//   mDirector: String,
+//   mStatus: Boolean,
+// },  { collection : 'movies' });
 
-var movieList = mongoose.model('movies', movieSchema);
+// var movieList = mongoose.model('movies', movieSchema);
 
 
 
@@ -52,8 +52,8 @@ app.use(bodyParser.json());
 //  console.log("This works bud")
 // });
 
-export class moveListService {
+// export class moveListService {
 
-}
+// }
 
 //module.exports = movieList;
