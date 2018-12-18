@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {server} from '../../../server.js';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 
+
 export class HomeComponent implements OnInit {
   
+  movieList = server;
+
   constructor() { }
 
   ngOnInit() {

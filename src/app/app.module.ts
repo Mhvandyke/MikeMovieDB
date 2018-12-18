@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { ReserveComponent} from './reserve/reserve.component';
 import { PostComponent } from './post/post.component';
 import { AdminComponent } from './admin/admin.component';
+import { MovieSearchComponent } from './movie-search/movie-search.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -32,7 +33,8 @@ const routes: Routes = [
     LoginComponent,
     ReserveComponent,
     PostComponent,
-    AdminComponent
+    AdminComponent,
+    MovieSearchComponent
     
   ],
   imports: [

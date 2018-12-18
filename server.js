@@ -2,10 +2,10 @@ const express = require('express')
 
 const http = require('http');
 //const Movie = require('./src/app/_models');
-const mongoose = require('mongoose')
+
 const router = express.Router();
 const bodyParser = require('body-parser');
-const url = 'mongodb://localhost:27017/mikemoviedb';
+
 const app = express();
 
 const hostname = 'localhost';
@@ -17,6 +17,10 @@ const server = http.createServer(app);
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
+
+
+const mongoose = require('mongoose')
+const url = 'mongodb://localhost:27017/mikemoviedb';
 mongoose.connect(url);
 
 
@@ -37,7 +41,7 @@ var movieSchema = new Schema({
   mStatus: Boolean,
 },  { collection : 'movies' });
 
-var movie = mongoose.model('movies', movieSchema);
+var movieList = mongoose.model('movies', movieSchema);
 
 
 
@@ -48,5 +52,8 @@ app.use(bodyParser.json());
 //  console.log("This works bud")
 // });
 
+export class moveListService {
 
-module.exports = movie;
+}
+
+//module.exports = movieList;
