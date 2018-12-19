@@ -5,7 +5,7 @@ var mongojs = require('mongojs');
 var db = mongojs('mongodb://localhost:27017/mikemoviedb', ['movies']);
 
 
-router.get('/', function(req, res) {
+router.get('/movies', function(req, res) {
     db.movies.find(function(err, movies) {
       if (err) {
         res.send(err);

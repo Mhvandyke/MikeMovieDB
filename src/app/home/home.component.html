@@ -1,3 +1,4 @@
+
 <table class="table table-striped table-hover">
     <thead>
       <tr>
@@ -10,8 +11,8 @@
         <th scope="col"></th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
+    <tbody *ngIf="heroes">
+      <tr >
        
         <td *ngFor="let movie of movies">{{ movie.mName }}</td>
       </tr>

@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 app.use('/', home);
-app.use('/api/v1/', movies);
+app.use('api/v1', movies);
 
 // const mongoose = require('mongoose')
 // const url = 'mongodb://localhost:27017/mikemoviedb';
