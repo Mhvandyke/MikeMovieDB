@@ -1,17 +1,18 @@
-const express = require('express');
-const app = express();
-const movieRoute = express.Router();
+var express = require('express');
+var router = express.Router();
+var mongojs = require('mongojs');
 
-let Movies = require('../_models/movies.ts');
+var db = mongojs('mongodb://localhost:27017/mikemoviedb', ['movies']);
 
-movieRoute.route('').get(function (req, res) {
-    Movies.find(function (err, movies){
-    if(err){
-      console.log(err);
-    }
-    else {
-      res.json(movies);
-      console.log(movies);
-    }
+
+router.get('/', function(req, res) {
+    db.movies.find(function(err, movies) {
+      if (err) {
+        res.send(err);
+      } else {
+        res.json(movies);
+      }
+    });
   });
-});
+
+  module.exports = router;

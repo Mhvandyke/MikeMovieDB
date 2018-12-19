@@ -1,24 +1,37 @@
 
-import { Document, Schema, Model, model} from "mongoose";
-import {iMovie} from "../interfaces/iMovie";
+import { Document, Schema, Model, model} from "mongoose";import {iMovie} from "../interfaces/iMovie";
 
-
-    export interface iMovieModel extends iMovie, Document {
-  movieName(): String;
+export interface iMovie {
+  _id?: Object;
+  mName?:  String;
+  mTime?: Number;
+  mGenre?:   String;
+  mRating?: Number;
+  mDirector?: String;
+  mStatus?: Boolean;
+}
+  
+  export class Movie implements iMovie {
+  _id: Object;
+  mName:  String;
+  mTime: Number;
+  mGenre:   String;
+  mRating: Number;
+  mDirector: String;
+  mStatus: Boolean;
+   constructor(init: Movie
+  ) {
+    Object.assign(this, init);
+}
 }
 
-export var movieSchema : Schema = new Schema({
-  _id: Object,
-  mName:  String,
-  mTime: Number,
-  mGenre:   String,
-  mRating: Number,
-  mDirector: String,
-  mStatus: Boolean,
-},  { collection : 'movies' });
 
-movieSchema.methods.movieName = function(): string {
-  return (this.mName);
-};
-
-export const Movie: Model<iMovieModel> = model<iMovieModel>('movies', movieSchema);
+// export var movieSchema : Schema = new Schema({
+//   _id: Object,
+//   mName:  String,
+//   mTime: Number,
+//   mGenre:   String,
+//   mRating: Number,
+//   mDirector: String,
+//   mStatus: Boolean,
+// },  { collection : 'movies' });

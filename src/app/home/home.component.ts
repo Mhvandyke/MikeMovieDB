@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {Movie} from '../_models/movies'
+
 
 @Component({
   selector: 'app-home',
@@ -11,12 +13,34 @@ import { Component, OnInit } from '@angular/core';
 
 export class HomeComponent implements OnInit {
   
+    
+  movies : Movie[];
+
   // movieList = server
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private movieService: movieService
+  ) { }
 
-  ngOnInit() {
+  ngOnInit() : void {
+
+    
+
+  this.getMovies();
     
   }
 
+  getMovies(): void {
+    this.movieService
+      .getHeroes()
+      .then(movies => {
+        this.movies = movies;
+      });
 }
+    
+  }
+
+
+  

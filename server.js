@@ -13,15 +13,21 @@ const port = process.env.PORT || "4020";
 
 app.set("port", port);
 
+
 const server = http.createServer(app);
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
 
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 
-const mongoose = require('mongoose')
-const url = 'mongodb://localhost:27017/mikemoviedb';
-mongoose.connect(url);
+app.use('/', index);
+app.use('/api/v1/', movies);
+
+// const mongoose = require('mongoose')
+// const url = 'mongodb://localhost:27017/mikemoviedb';
+// mongoose.connect(url);
 
 
 
@@ -45,8 +51,6 @@ mongoose.connect(url);
 
 
 
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json());
 
 // router.get('/', function(req,res){
 //  console.log("This works bud")
@@ -56,4 +60,4 @@ app.use(bodyParser.json());
 
 // }
 
-//module.exports = movieList;
+module.exports = app;
