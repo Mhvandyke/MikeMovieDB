@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 import { Movie } from './_models/movies';
@@ -17,6 +16,9 @@ const httpOptions = {
 })
 export class MovieService {
 
+   private headers = new Headers({'Content-Type': 'application/json'});
+
+
   private moviesUrl = './_models/movies';
 
   constructor( private http: HttpClient,
@@ -26,14 +28,19 @@ export class MovieService {
 
    }
 
-   getHeroes() : Promise<Hero[]> {
-    return this.http.get('/api/v1/heroes')
+   getMovies() : Promise<Movie[]> {
+    return this.http.get('/api/v1/movies')
       .toPromise()
-      .then(response => response.json() as Hero[])
+      .then(response => response as Movie[])
       .catch(this.handleError);
 }
 
 
+
+private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); 
+    return Promise.reject(error.message || error);
+ }
 
 }
 

@@ -1,5 +1,5 @@
 
-import { Document, Schema, Model, model} from "mongoose";import {iMovie} from "../interfaces/iMovie";
+import { Document, Schema, Model, model} from "mongoose";
 
 export interface iMovie {
   _id?: Object;

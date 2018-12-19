@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import {Movie} from '../_models/movies'
 
+import {MovieService} from '../movie.service'
+
+import {ActivatedRoute, Params, Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -21,7 +25,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private movieService: movieService
+    private MovieService: MovieService
   ) { }
 
   ngOnInit() : void {
@@ -33,8 +37,8 @@ export class HomeComponent implements OnInit {
   }
 
   getMovies(): void {
-    this.movieService
-      .getHeroes()
+    this.MovieService
+      .getMovies()
       .then(movies => {
         this.movies = movies;
       });
