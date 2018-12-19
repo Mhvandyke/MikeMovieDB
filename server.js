@@ -1,4 +1,6 @@
 const express = require('express')
+var home = require('./src/app/routes/home');
+var movies = require('./src/app/routes/movies.route');
 
 const http = require('http');
 //const Movie = require('./src/app/_models');
@@ -22,7 +24,7 @@ server.listen(port, hostname, () => {
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-app.use('/', index);
+app.use('/', home);
 app.use('/api/v1/', movies);
 
 // const mongoose = require('mongoose')
